@@ -105,19 +105,19 @@ exclude_zero_list = [ (x,y,z) for x in S for y in S for z in S if sum([x,y,z]) =
 ## 15: (Task 15) One nontrivial three-element tuple summing to zero
 S = {-4, -2, 1, 2, 5, 0}
 # Replace ... with a one-line expression that uses a list comprehension in which S appears
-first_of_tuples_list = ...
+first_of_tuples_list = [ (x,y,z) for x in S for y in S for z in S if sum([x,y,z]) == 0 and x != 0 and y != 0 and z != 0][0]
 
 
 
 ## 16: (Task 16) List and set differ
 # Assign to example_L a list such that len(example_L) != len(list(set(example_L)))
-example_L = [...]
+example_L = [1,1,3]
 
 
 
 ## 17: (Task 17) Odd numbers
 # Replace {...} with a one-line set comprehension over a range of the form range(n)
-odd_num_list_range = {...}
+odd_num_list_range = { i for i in range(100) if i % 2 != 0 }
 
 
 
@@ -125,7 +125,7 @@ odd_num_list_range = {...}
 # In the line below, replace ... with an expression that does not include a comprehension.
 # Instead, it should use zip and range.
 # Note: zip() does not return a list. It returns an 'iterator of tuples'
-range_and_zip = ...
+range_and_zip = zip( ['A','B','C','D','E'], range(5) )
 
 
 
@@ -135,7 +135,7 @@ B = [1, 15, 20]
 # Replace [...] with a one-line comprehension that uses zip together with the variables A and B.
 # The comprehension should evaluate to a list whose ith element is the ith element of
 # A plus the ith element of B.
-list_sum_zip = [...]
+list_sum_zip = [ x+y for x,y in zip( [10,25,40], [1,15,20]) ]
 
 
 
@@ -144,7 +144,7 @@ dlist = [{'James':'Sean', 'director':'Terence'}, {'James':'Roger', 'director':'L
 k = 'James'
 # Replace [...] with a one-line comprehension that uses dlist and k
 # and that evaluates to ['Sean','Roger','Pierce']
-value_list = [...]
+value_list = [ d[k] for d in dlist ]
 
 
 
@@ -152,22 +152,22 @@ value_list = [...]
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
 k = 'Bilbo'
 #Replace [...] with a one-line comprehension
-value_list_modified_1 = [...] # <-- Use the same expression here
+value_list_modified_1 = [ d[k] for d in dlist if k in d else "NOT PRESENT"] # <-- Use the same expression here
 k = 'Frodo'
-value_list_modified_2 = [...] # <-- as you do here
+value_list_modified_2 = [ d[k] for d in dlist if k in d else "NOT PRESENT"] # <-- as you do here
 
 
 
 ## 22: (Task 22) A dictionary mapping integers to their squares
 # Replace {...} with a one-line dictionary comprehension
-square_dict = {...}
+square_dict = { x : x**2 for x in range(100) }
 
 
 
 ## 23: (Task 23) Making the identity function
 D = {'red','white','blue'}
 # Replace {...} with a one-line dictionary comprehension
-identity_dict = {...}
+identity_dict = { x : x for x in D }
 
 
 
