@@ -152,9 +152,9 @@ value_list = [ d[k] for d in dlist ]
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
 k = 'Bilbo'
 #Replace [...] with a one-line comprehension
-value_list_modified_1 = [ d[k] for d in dlist if k in d else "NOT PRESENT"] # <-- Use the same expression here
+value_list_modified_1 = [ d[k] for d in dlist if k in d else "NOT PRESENT" ] # <-- Use the same expression here
 k = 'Frodo'
-value_list_modified_2 = [ d[k] for d in dlist if k in d else "NOT PRESENT"] # <-- as you do here
+value_list_modified_2 = [ d[k] for d in dlist if k in d else "NOT PRESENT" ] # <-- as you do here
 
 
 
@@ -177,7 +177,7 @@ digits = set(range(base))
 # Replace { ... } with a one-line dictionary comprehension
 # Your comprehension should use the variables 'base' and 'digits' so it will work correctly if these
 # are assigned different values (e.g. base = 2 and digits = {0,1})
-representation_dict = { ... }
+representation_dict = { x : ( x (  for x in range(100) }
 
 
 
@@ -185,19 +185,19 @@ representation_dict = { ... }
 id2salary = {0:1000.0, 1:1200.50, 2:990}
 names = ['Larry', 'Curly', 'Moe']
 # Replace { ... } with a one-line dictionary comprehension that uses id2salary and names.
-listdict2dict = { ... }
+listdict2dict = { names[k] : id2salary[k] for k in id2salary }
 
 
 
 ## 26: (Task 26) Procedure nextInts
 # Complete the procedure definition by replacing [ ... ] with a one-line list comprehension
-def nextInts(L): return [ ... ]
+def nextInts(L): return [ x+1 for x in L ]
 
 
 
 ## 27: (Task 27) Procedure cubes
 # Complete the procedure definition by replacing [ ... ] with a one-line list comprehension
-def cubes(L): return [ ... ]
+def cubes(L): return [ x**3 for x in L ]
 
 
 
@@ -206,7 +206,7 @@ def cubes(L): return [ ... ]
 # Output: the list L such that L[i] is the value associated in dct with keylist[i]
 # Example: dict2list({'a':'A', 'b':'B', 'c':'C'},['b','c','a']) should equal ['B','C','A']
 # Complete the procedure definition by replacing [ ... ] with a one-line list comprehension
-def dict2list(dct, keylist): return [ ... ]
+def dict2list(dct, keylist): return [ dct[k] for k in keylist ]
 
 
 
@@ -215,5 +215,5 @@ def dict2list(dct, keylist): return [ ... ]
 # Output: the dictionary that maps keylist[i] to L[i] for i=0,1,...len(L)-1
 # Example: list2dict(['A','B','C'],['a','b','c']) should equal {'a':'A', 'b':'B', 'c':'C'}
 # Complete the procedure definition by replacing { ... } with a one-line dictionary comprehension
-def list2dict(L, keylist): return { ... }
+def list2dict(L, keylist): return { k : v for x,v in zip( L, keylist ) }
 
