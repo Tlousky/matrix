@@ -13,7 +13,7 @@ minutes_in_week = 7 * 24 * 60
 
 ## 2: (Task 2) Remainder
 #For this task, your expression must use //
-remainder_without_mod = 2304811 // 47
+remainder_without_mod = 2304811 - 2304811 // 47 * 47
 
 
 
@@ -98,7 +98,7 @@ zero_sum_list = [ (x,y,z) for x in S for y in S for z in S if sum([x,y,z]) == 0 
 ## 14: (Task 14) Nontrivial three-element tuples summing to zero
 S = {-4, -2, 1, 2, 5, 0}
 # Replace [ ... ] with a one-line list comprehension in which S appears
-exclude_zero_list = [ (x,y,z) for x in S for y in S for z in S if sum([x,y,z]) == 0 and x != 0 and y != 0 and z != 0]
+exclude_zero_list = [ (x,y,z) for x in S for y in S for z in S if sum([x,y,z]) == 0 and (x,y,z) != (0,0,0) ]
 
 
 
@@ -125,7 +125,8 @@ odd_num_list_range = { i for i in range(100) if i % 2 != 0 }
 # In the line below, replace ... with an expression that does not include a comprehension.
 # Instead, it should use zip and range.
 # Note: zip() does not return a list. It returns an 'iterator of tuples'
-range_and_zip = zip( ['A','B','C','D','E'], range(5) )
+L = ['A','B','C','D','E']
+range_and_zip = list( zip( range(5), L ) )
 
 
 
@@ -152,9 +153,9 @@ value_list = [ d[k] for d in dlist ]
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
 k = 'Bilbo'
 #Replace [...] with a one-line comprehension
-value_list_modified_1 = [ d[k] for d in dlist if k in d else "NOT PRESENT" ] # <-- Use the same expression here
+value_list_modified_1 = [ d[k] if k in d else "NOT PRESENT" for d in dlist ] # <-- Use the same expression here
 k = 'Frodo'
-value_list_modified_2 = [ d[k] for d in dlist if k in d else "NOT PRESENT" ] # <-- as you do here
+value_list_modified_2 = [ d[k] if k in d else "NOT PRESENT" for d in dlist ] # <-- as you do here
 
 
 
@@ -177,7 +178,7 @@ digits = set(range(base))
 # Replace { ... } with a one-line dictionary comprehension
 # Your comprehension should use the variables 'base' and 'digits' so it will work correctly if these
 # are assigned different values (e.g. base = 2 and digits = {0,1})
-representation_dict = { x : ( x (  for x in range(100) }
+representation_dict = { x*base**2 + y*base**1 + z*base**0 : [ x, y, z ] for x in digits for y in digits for z in digits }
 
 
 
@@ -215,5 +216,5 @@ def dict2list(dct, keylist): return [ dct[k] for k in keylist ]
 # Output: the dictionary that maps keylist[i] to L[i] for i=0,1,...len(L)-1
 # Example: list2dict(['A','B','C'],['a','b','c']) should equal {'a':'A', 'b':'B', 'c':'C'}
 # Complete the procedure definition by replacing { ... } with a one-line dictionary comprehension
-def list2dict(L, keylist): return { k : v for x,v in zip( L, keylist ) }
+def list2dict(L, keylist): return { k : v for v,k in zip( L, keylist ) }
 
